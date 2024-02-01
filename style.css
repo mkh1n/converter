@@ -70,7 +70,7 @@ input::-webkit-inner-spin-button {
     margin: 10px;
     padding: 10px;
     cursor: pointer;
-    background-image: url('/swap.png');
+    background-image: url('swap.png');
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
