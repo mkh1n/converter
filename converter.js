@@ -15,8 +15,8 @@ document.querySelectorAll('select').forEach((select)=>{
 })
 const convertCurrency = () => {
     const inputAmount = +document.querySelector('#amountInput').value;
-    const resultAmount = inputAmount * ((+exchangeData[toCurr.value]) / ( +exchangeData[fromCur.value])).toFixed(2)
-    resultBlock.value = (Math.round(resultAmount * 100)/100).toFixed(1);
+    const resultAmount = inputAmount * ((+exchangeData[toCurr.value]) / ( +exchangeData[fromCur.value]))
+    resultBlock.value = Number((resultAmount).toFixed(4)).toString().replace('.', ',');
 
 }
 document.querySelector('#switchButton').addEventListener('click', (e)=>{

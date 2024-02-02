@@ -56,13 +56,19 @@ input::-webkit-inner-spin-button {
     border-left: 2px solid rgb(216, 216, 216);
     padding-left: 10px;
     margin-left: 10px;
+    cursor: pointer;
 }
+
 .inputHolder{
     border: 2px solid rgb(216, 216, 216);
     box-sizing: border-box;
     padding: 10px;
     border-radius: 10px;
     background-color: #fff;
+}
+.inputHolder:hover{
+    border: 2px solid rgb(193, 193, 193);
+
 }
 #switchButton{
     height: 50px;
