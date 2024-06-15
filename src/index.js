@@ -90,10 +90,11 @@ elements.amountInput.addEventListener('input', (e) => {
 elements.inputs.forEach((input) => {
     input.addEventListener('input', (e) => {
         const valueLength = e.target.value.length;
-        if (valueLength > 10) {
+        const rsultLength = elements.resultBlock.length;
+        if (valueLength > 10 || rsultLength > 10) {
             e.target.style.fontSize = '15px';
             elements.resultBlock.style.fontSize = '15px'
-        } else if (valueLength > 7) {
+        } else if (valueLength > 7 || rsultLength > 7) {
             e.target.style.fontSize = '18px';
             elements.resultBlock.style.fontSize = '18px'
         }

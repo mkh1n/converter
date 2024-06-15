@@ -3,103 +3,76 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Converted</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Exchanger</title>
     <script type="module" defer src="converter.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./flags.css">
+    <script src="./index.js"></script>
 <script defer src="bundle.js"></script></head>
 
 <body>
     <div class="container">
-        <div class="holder flex">
-            <div class="converterInputs flex">
-                <div class="inputHolder flex">
+        <nav class="main-menu">
+            <ul>
+                <li>
+                    <a class="changePage activeListChanger" name="currencyExchange">
+                        <div id='swithIcon'></div>
+                        <span class="nav-text">
+                            Обмен валют
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="changePage" name="currencyList">
+                        <div id='listIcon'></div>
+                        <span class="nav-text">
+                            Курсы валют
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div id='exchangePage'>
+            <div class="converterInputs">
+                <div class="inputHolder">
                     <input type="number" id="amountInput" class="currField">
-                    <select name="" class='defaultButton selectCurr' id="fromCurr">
-                        <option value="USD" selected title="Доллар США">USD</option>
-                        <option value="EUR" title="Евро">EUR</option>
-                        <option value="RUB" title="Российский рубль">RUB</option>
-                        <option value="JPY" title="Японская иена">JPY</option>
-                        <option value="BGN" title="Болгарский лев">BGN</option>
-                        <option value="CZK" title="Чешская крона">CZK</option>
-                        <option value="DKK" title="Датская крона">DKK</option>
-                        <option value="GBP" title="Фунт стерлингов">GBP</option>
-                        <option value="HUF" title="Венгерский форинт">HUF</option>
-                        <option value="PLN" title="Польский злотый">PLN</option>
-                        <option value="RON" title="Румынский лей">RON</option>
-                        <option value="SEK" title="Шведская крона">SEK</option>
-                        <option value="CHF" title="Швейцарский франк">CHF</option>
-                        <option value="ISK" title="Исландская крона">ISK</option>
-                        <option value="NOK" title="Норвежская крона">NOK</option>
-                        <option value="HRK" title="Хорватская куна">HRK</option>
-                        <option value="TRY" title="Турецкая лира">TRY</option>
-                        <option value="AUD" title="Австралийский доллар">AUD</option>
-                        <option value="BRL" title="Бразильский реал">BRL</option>
-                        <option value="CAD" title="Канадский доллар">CAD</option>
-                        <option value="CNY" title="Китайский юань">CNY</option>
-                        <option value="HKD" title="Гонконгский доллар">HKD</option>
-                        <option value="IDR" title="Индонезийская рупия">IDR</option>
-                        <option value="ILS" title="Новый израильский шекель">ILS</option>
-                        <option value="INR" title="Индийская рупия">INR</option>
-                        <option value="KRW" title="Южнокорейская вона">KRW</option>
-                        <option value="MXN" title="Мексиканский песо">MXN</option>
-                        <option value="MYR" title="Малайзийский ринггит">MYR</option>
-                        <option value="NZD" title="Новозеландский доллар">NZD</option>
-                        <option value="PHP" title="Филиппинский песо">PHP</option>
-                        <option value="SGD" title="Сингапурский доллар">SGD</option>
-                        <option value="THB" title="Тайский бат">THB</option>
-                        <option value="ZAR" title="Южноафриканский рэнд">ZAR</option>
-    
-                    </select>
+                    <div class="exchangeSelectHolder">
+                        <div class="currency-flag currency-flag-usd" id="flagFrom"></div>
+                        <select name="" class='defaultButton exchangeSelect' id="fromCurrSelect"></select>
+                    </div>
                 </div>
                 <button id="switchButton" class="defaultButton"></button>
-                <div class="inputHolder flex">
+                <div class="inputHolder">
                     <input type="text" disabled id="result" class="currField">
-                    <select name="" class='defaultButton selectCurr' id="toCurr">
-                        <option value="USD" title="Доллар США">USD</option>
-                        <option value="EUR" title="Евро">EUR</option>
-                        <option value="RUB" selected title="Российский рубль">RUB</option>
-                        <option value="JPY" title="Японская иена">JPY</option>
-                        <option value="BGN" title="Болгарский лев">BGN</option>
-                        <option value="CZK" title="Чешская крона">CZK</option>
-                        <option value="DKK" title="Датская крона">DKK</option>
-                        <option value="GBP" title="Фунт стерлингов">GBP</option>
-                        <option value="HUF" title="Венгерский форинт">HUF</option>
-                        <option value="PLN" title="Польский злотый">PLN</option>
-                        <option value="RON" title="Румынский лей">RON</option>
-                        <option value="SEK" title="Шведская крона">SEK</option>
-                        <option value="CHF" title="Швейцарский франк">CHF</option>
-                        <option value="ISK" title="Исландская крона">ISK</option>
-                        <option value="NOK" title="Норвежская крона">NOK</option>
-                        <option value="HRK" title="Хорватская куна">HRK</option>
-                        <option value="TRY" title="Турецкая лира">TRY</option>
-                        <option value="AUD" title="Австралийский доллар">AUD</option>
-                        <option value="BRL" title="Бразильский реал">BRL</option>
-                        <option value="CAD" title="Канадский доллар">CAD</option>
-                        <option value="CNY" title="Китайский юань">CNY</option>
-                        <option value="HKD" title="Гонконгский доллар">HKD</option>
-                        <option value="IDR" title="Индонезийская рупия">IDR</option>
-                        <option value="ILS" title="Новый израильский шекель">ILS</option>
-                        <option value="INR" title="Индийская рупия">INR</option>
-                        <option value="KRW" title="Южнокорейская вона">KRW</option>
-                        <option value="MXN" title="Мексиканский песо">MXN</option>
-                        <option value="MYR" title="Малайзийский ринггит">MYR</option>
-                        <option value="NZD" title="Новозеландский доллар">NZD</option>
-                        <option value="PHP" title="Филиппинский песо">PHP</option>
-                        <option value="SGD" title="Сингапурский доллар">SGD</option>
-                        <option value="THB" title="Тайский бат">THB</option>
-                        <option value="ZAR" title="Южноафриканский рэнд">ZAR</option>
-    
-                    </select>
+                    <div class="exchangeSelectHolder">
+                        <div class="currency-flag currency-flag-rub" id="flagTo"></div>
+                        <select name="" class='defaultButton exchangeSelect' id="toCurrSelect"></select>
+                    </div>
                 </div>
-    
             </div>
-    </div>
-    <footer>Made with ♥️ by <a href="https://github.com/mkh1n" target="_blank">mkh1n</a></footer>
+        </div>
+        <div class="hide" id="listPage">
+            <div class="inputHolder" id="fromCurrForListHolder">
+                <p id="fromCurrForListName"></p>
+                <div class="exchangeSelectHolder">
+                    <div class="currency-flag currency-flag-usd" id="flagForList"></div>
+                    <select name="" class='defaultButton' id="listSelect"></select>
+                </div>
+            </div>
+            <h2 id="rateHeader">Курсы Валют</h2>
+            <div class="currencyHeader">
+                <span class="currencyCode">Код</span>
+                <span class="currencyName">Валюта</span>
+                <span class="currencyRate">Курс</span>
+            </div>
+            <div id="currencyListHolder">
+            </div>
+        </div>
     </div>
 </body>
 

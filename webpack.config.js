@@ -1,7 +1,7 @@
 const path = require('path'); // Импортируем модуль "path" для работы с путями файлов
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const config = {
   entry: './src/index.js', // Точка входа для сборки проекта
   output: {
     filename: 'bundle.js', // Имя выходного файла сборки
@@ -34,3 +34,4 @@ module.exports = {
   },
   mode: 'development', // Режим сборки
 };
+module.exports = config
