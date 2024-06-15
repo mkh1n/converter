@@ -4,45 +4,48 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans', sans-serif;
+    background-color: #111112;
 }
 .hide{
     display: none !important;
 }
-.flex {
-    display: flex;
+#exchangePage, #listPage {
+    padding: 40px ;
+    border-radius: 15px;
+    background-color: #18181a;
+    color: #fff;
+    ;
+}
+.activeListChanger{
+    background-color: rgb(42 42 44) !important
+}
+#exchangePage{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.holder {
-    margin-top: 200px;
-    margin-left: auto;
-    flex-grow: 1;
-
-    margin-right: auto;
-    height: 300px;
-    width: 700px;
-    border-radius: 10px;
-    background-color: #f3f3f3;
-}
-
-footer {
-    display: flex;
+#listPage{
+    margin: 30px auto;
+    width: fit-content;
     flex-direction: column;
-    font-size: 17px;
-    font-weight: 400;
+    padding: 20px 30px;
 }
-
 .converterInputs,
-.holder {
+#exchangePage,
+#listPage {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 .defaultButton {
     background-color: transparent;
     border: none;
     background: #ffffff;
     cursor: pointer;
-
 }
 
 input::-webkit-outer-spin-button,
@@ -50,47 +53,94 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-.currField {
-    height: 40px;
+.currField, #fromCurrForListHolder {
+    position: relative;
+    left: 15px;
     width: 110px;
-    background-color: #fff;
+    background-color: transparent;
     border: none;
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 25px;
     text-align: right;
+    color: inherit;
 }
 
 .currField:focus,
-.selectCurr:focus {
+.selectCurr:focus, #fromCurrForListHolder:focus {
     outline: none !important;
 }
-
-.exchangeSelect, .selectCurrForList {
-    width: 70px;
-    font-size: 16px;
-    border-left: 2px solid rgb(216, 216, 216);
-    padding-left: 10px;
-    margin-left: 10px;
+.inputHolder, #fromCurrForListHolder{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 15px;
+    transition: 0.2s ease-in-out;
+    color: #fff !important;
 }
+
+.exchangeSelectHolder{
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    transition: 0.2s all; 
+    cursor: pointer;
+}
+
+input:focus,
+select:focus, .form-control:focus,
+textarea:focus,
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.currency-flag{
+    position: relative;
+    left: 32px;
+    pointer-events: none;
+
+}
+.exchangeSelect, #listSelect {
+    font-size: 16px;
+    color: #fff;
+    background-color: rgb(42 42 44);;
+    font-weight: bold;
+    padding: 15px 10px;
+    padding-left: 35px;
+    border-radius: 10px;
+    transition: 0.2s ease;
+}
+
+.exchangeSelect:hover, #listSelect:hover{
+    background-color: rgb(50, 50, 52);
+}
+
 .selectCurrForList{
     border-left: none;
 }
+.selectOption::after {
+    content: attr(data-name);
+    display: block;
 
-.inputHolder {
-    border: 2px solid rgb(216, 216, 216);
-    box-sizing: border-box;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #fff;
-}
-
+    margin-left: 10px;
+  }
+  option:nth-child(3)::after {
+    content: " " url(http://www.blogger.com/img/icon_28_followers.png);
+    vertical-align: middle;
+  }
 #fromCurrForListHolder{
-    width: min-content
+    display: flex;
+    width: fit-content;
+    margin-bottom: 10px;
 }
 
-.inputHolder:hover {
-    border: 2px solid rgb(193, 193, 193);
-
+#fromCurrForListHolder p{
+    margin: 0;
+    margin-right: 5px;
+    position: relative;
+    left: 10px;
+    font-size: 20px;
 }
 
 #switchButton {
@@ -103,31 +153,27 @@ input::-webkit-inner-spin-button {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    filter: opacity(0.6);
+    filter: opacity(0.6) invert(1);
     background-color: transparent;
 }
 
 #swithIcon, #listIcon{
+    filter: invert(1);
     background-image: url('swap.png');
-    padding: 10px;
     margin: 10px;
     margin-right: 15px;
     opacity: 0.6;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: 30px;
-    width: 15px;
-    padding: 20px;
+    height: 35px;
+    width: 45px;
     background-color: transparent;
 }
 #listIcon{
     background-image: url('currency-exchange.svg');
 }
 
-#result {
-    color: black !important;
-}
 
 .fa-2x {
     font-size: 2em;
@@ -146,18 +192,19 @@ input::-webkit-inner-spin-button {
 
 .main-menu:hover,
 nav.main-menu.expanded {
-    width: 250px;
+    width: 230px;
     overflow: visible;
 }
 
 .main-menu {
-    background: #f3f3f3;
+    background:  #18181a;
+    color: #fff;
     position: fixed;
     top: 0;
     bottom: 0;
     height: 100%;
     left: 0;
-    width: 60px;
+    width: 70px;
     overflow: hidden;
     -webkit-transition: width .05s linear;
     transition: width .05s linear;
@@ -165,22 +212,21 @@ nav.main-menu.expanded {
     z-index: 1000;
 }
 
-.main-menu>ul {
-    margin: 7px 0;
-}
 
 .main-menu li {
     position: relative;
     display: block;
-    width: 250px;
+    width: 230px;
 }
 
 .main-menu li>a {
     position: relative;
-    display: table;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    align-items: center;
     border-collapse: collapse;
     border-spacing: 0;
-    color: #999;
     font-family: arial;
     font-size: 14px;
     text-decoration: none;
@@ -189,33 +235,6 @@ nav.main-menu.expanded {
     transition: all .1s linear;
 
 }
-
-.main-menu .nav-icon {
-    position: relative;
-    display: table-cell;
-    width: 60px;
-    height: 36px;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 18px;
-}
-
-.main-menu .nav-text {
-    font-size: 15px;
-    font-weight: 300;
-    position: relative;
-    display: table-cell;
-    vertical-align: middle;
-    width: 190px;
-    font-family: 'Titillium Web', sans-serif;
-}
-
-.main-menu>ul.logout {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
-
 .no-touch .scrollable.hover {
     overflow-y: hidden;
 }
@@ -253,10 +272,11 @@ nav.main-menu li.active>a,
 .dropdown-menu>.active>a:hover,
 .dropdown-menu>.active>a:focus,
 .no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
-.dashboard-page nav.dashboard-menu ul li.active a {
-    color: #000000;
-    background-color: #aaaaaa;
+.dashboard-page nav.dashboard-menu ul li.active a{
+    background-color: rgb(42 42 44);
+    cursor: pointer;
 }
+
 
 .area {
     float: left;
@@ -265,28 +285,29 @@ nav.main-menu li.active>a,
     height: 100%;
 }
 
-.currency-header, .currency-item {
+.currencyHeader, .currencyItem {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 10px;;
     border-bottom: 1px solid #ddd;
 }
 
-.currency-header {
+.currencyHeader {
     font-weight: bold;
     border-bottom: 2px solid #333;
 }
 
-.currency-item:last-child {
+.currencyItem:last-child {
     border-bottom: none;
 }
-#currency-list{
+#currencyList{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 0;
 }
-.currency-code, .currency-name, .currency-rate {
+.currencyCode, .currencyName, .currencyRate {
     text-align: center;
     margin: 0 20px;
 }
@@ -295,4 +316,68 @@ nav.main-menu li.active>a,
     text-align: left;
     margin-bottom: 20px;
     color: #333;
+}
+@media (max-width: 1024px) {
+    .main-menu{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+    }
+    .main-menu li{
+        width: unset;
+    }
+    .main-menu>ul{
+        display: flex;
+       justify-content: space-evenly;
+        width: 100%;
+    }
+    #swithIcon, #listIcon{
+        padding: 0;
+        width: 25px;
+        height: 25px;
+        margin: 0;
+        margin-right: 10px;
+    }
+    .main-menu:hover,
+    nav.main-menu.expanded {
+    width: 100%;
+    }
+    .main-menu li>a {
+        border-radius: 10px;
+        display: flex;
+        height: 45px;
+        align-items: center;
+        padding: 0 10px;
+    }
+}
+@media (max-width: 767px) {
+    .converterInputs{
+        flex-direction: column;
+    }
+    #switchButton{
+        margin: -5px;
+        rotate: 90deg;
+    }
+    #exchangePage, #listPage{
+        padding: 10px;
+        font-size: 15px;
+    }
+    #listPage{
+        margin-top: 65px;
+    }
+    .currencyHeader, .currencyItem{
+        padding: 5px;
+    }
+    .currencyCode, .currencyName, .currencyRate {
+        margin: 0 10px;
+    }
+    #fromCurrForListHolder{
+        transform: scale(0.8);
+        margin-bottom: 0;
+    }
+    #listPage h2{
+        margin: 10px 0;
+    }
+    
 }
