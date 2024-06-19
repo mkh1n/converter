@@ -29,3 +29,9 @@ Currency Exchanger is a Single Page Application (SPA) that allows you to easily 
 ## Live Demo
 
 Check out the live demo on GitHub Pages: [Currency Exchanger](https://mkh1n.github.io/currency-exchanger/)
+
+
+## About
+
+This is a test task completed according to [this technical task](https://github.com/appbooster/test-assignments/blob/master/tasks/frontend.md).
+
