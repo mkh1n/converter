@@ -1,9 +1,31 @@
-# Cureency-exchanger
+# Currency Exchanger
 
-A SPA with which you can easily convert cotton wool. It is possible both to transfer one currency to another and to view the exchange rate for one specific currency. 
+Currency Exchanger is a Single Page Application (SPA) that allows you to easily convert between different currencies. You can either convert one currency to another or view the exchange rate for a specific currency.
 
-Used technogies - HTML, CSS, JS, WebPack
-<image src='./screenshot1.png'>
-<image src='./screenshot2.png'>
-<image src='./mobileScreenshot1.png' style='width:49.5%;'>
-<image src='./mobileScreenshot2.png' style='width:49.5%;'>
+## Features
+
+- **Currency Conversion**: Convert any amount from one currency to another.
+- **Exchange Rate Viewing**: View the current exchange rate for a specific currency.
+
+## Technologies Used
+
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **WebPack**
+
+## Screenshots
+
+### Desktop View
+
+![Desktop Screenshot 1](./screenshot1.png)
+![Desktop Screenshot 2](./screenshot2.png)
+
+### Mobile View
+
+<img src='./mobileScreenshot1.png' style='width:49.5%;'>
+<img src='./mobileScreenshot2.png' style='width:49.5%;'>
+
+## Live Demo
+
+Check out the live demo on GitHub Pages: [Currency Exchanger](https://mkh1n.github.io/currency-exchanger/)
